@@ -2,6 +2,8 @@
 
 #PODNAME: nq-comb
 
+use Data::Validate::URI qw/is_web_uri/;
+
 use strict; use warnings;
 use feature qw/say/;
 
@@ -12,22 +14,48 @@ my $echar           = qr/\\[tbnrf"'\\]/;
 my $hex             = qr/[0-9A-Fa-f]/;
 my $uchar           = qr/\\u$hex{4}|\\U$hex{8}/;
 my $strLitQuote     = qr/"(?:[^\x{22}\x{5C}\x{A}\x{D}]|$echar|$uchar)*"/;
-my $iriRef          = qr/<(?:[^\x{00}-\x{20}<>"{}|^`\\]|$uchar)*>/;
+my $iriRef          = qr/(?:[^\x{00}-\x{20}<>"{}|^`\\]|$uchar)*/;
 my $langTag         = qr/@[a-zA-Z]+(?:-[a-zA-Z0-9]+)*/;
-my $lit             = qr/$strLitQuote(?:\^\^$iriRef|$langTag)?/;
+my $lit             = qr/$strLitQuote(?:\^\^<$iriRef>|$langTag)?/;
 my $blLabel         = qr/_:(?:$pn_chars_u|[0-9])(?:(?:$pn_chars|\.)*$pn_chars)?/;
 
-my $sub  = qr/$iriRef|$blLabel/;
-my $pred = qr/$iriRef/;
-my $obj  = qr/$iriRef|$blLabel|$lit/;
-my $gLab = qr/$iriRef|$blLabel/;
+my $sub  = qr/<(?<sIri>$iriRef)>|$blLabel/;
+my $pred = qr/<(?<pIri>$iriRef)>/;
+my $obj  = qr/<(?<oIri>$iriRef)>|$blLabel|$lit/;
+my $gLab = qr/<(?<gIri>$iriRef)>|$blLabel/;
 
 my $quad = qr/^$sub\s$pred\s$obj(?:\s$gLab)?\s?\.$/;
 
-while(<>){
-    if(/$quad/){ print if /$quad/; }
-    else {
+while(my $line = <>){
+    # fix percent signs
+    $line =~ s/%([^0-9A-Fa-f])/%25$1/g;
+
+    if($line !~ /$quad/){
         print STDERR "[Line $. invalid syntax] ";
-        say STDERR $_;
+        print STDERR $line;
+        next;
     }
+
+    if ($+{sIri} && !is_web_uri($+{sIri})){
+        print STDERR "[Line $. invalid subject IRI] ";
+        say STDERR $+{sIri};
+        next;
+    }
+    if ($+{pIri} && !is_web_uri($+{pIri})){
+        print STDERR "[Line $. invalid predicate IRI] ";
+        say STDERR $+{pIri};
+        next;
+    }
+    if ($+{oIri} && !is_web_uri($+{oIri})){
+        print STDERR "[Line $. invalid object IRI] ";
+        say STDERR $+{oIri};
+        next;
+    }
+    if ($+{gIri} && !is_web_uri($+{gIri})){
+        print STDERR "[Line $. invalid graph IRI] ";
+        say STDERR $+{gIri};
+        next;
+    }
+
+    print $line;
 }
