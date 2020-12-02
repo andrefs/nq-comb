@@ -35,7 +35,7 @@ while(my $line = <>){
 
     if($line !~ /$quad/){
         print STDERR "[Line $. invalid syntax] ";
-        print STDERR $line;
+        say STDERR $line;
         next;
     }
 
