@@ -30,6 +30,9 @@ while(my $line = <>){
     # fix percent signs
     $line =~ s/%([^0-9A-Fa-f])/%25$1/g;
 
+    # fix \r\n
+    $line =~ s/\r?\n?$//;
+
     if($line !~ /$quad/){
         print STDERR "[Line $. invalid syntax] ";
         print STDERR $line;
@@ -57,5 +60,5 @@ while(my $line = <>){
         next;
     }
 
-    print $line;
+    say $line;
 }
