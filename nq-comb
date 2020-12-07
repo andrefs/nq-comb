@@ -39,22 +39,22 @@ while(my $line = <>){
         next;
     }
 
-    if ($+{sIri} && !is_web_uri($+{sIri})){
+    if ($+{sIri} && !is_web_uri($+{sIri} =~ s/$uchar//gr)){
         print STDERR "[Line $. invalid subject IRI] ";
         say STDERR $+{sIri};
         next;
     }
-    if ($+{pIri} && !is_web_uri($+{pIri})){
+    if ($+{pIri} && !is_web_uri($+{pIri} =~ s/$uchar//gr)){
         print STDERR "[Line $. invalid predicate IRI] ";
         say STDERR $+{pIri};
         next;
     }
-    if ($+{oIri} && !is_web_uri($+{oIri})){
+    if ($+{oIri} && !is_web_uri($+{oIri} =~ s/$uchar//gr)){
         print STDERR "[Line $. invalid object IRI] ";
         say STDERR $+{oIri};
         next;
     }
-    if ($+{gIri} && !is_web_uri($+{gIri})){
+    if ($+{gIri} && !is_web_uri($+{gIri} =~ s/$uchar//gr)){
         print STDERR "[Line $. invalid graph IRI] ";
         say STDERR $+{gIri};
         next;
