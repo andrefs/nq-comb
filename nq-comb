@@ -24,7 +24,8 @@ my $pred = qr/<(?<pIri>$iriRef)>/;
 my $obj  = qr/<(?<oIri>$iriRef)>|$blLabel|$lit/;
 my $gLab = qr/<(?<gIri>$iriRef)>|$blLabel/;
 
-my $quad = qr/^$sub\s$pred\s$obj(?:\s$gLab)?\s?\.$/;
+my $quad = qr/$sub\s+$pred\s+$obj(?:\s+$gLab)?\s*\./;
+my $comment = qr/#.*/;
 
 while(my $line = <>){
     # fix percent signs
@@ -33,7 +34,7 @@ while(my $line = <>){
     # fix \r\n
     $line =~ s/\r?\n?$//;
 
-    if($line !~ /$quad/){
+    if($line !~ /^\s*$quad?\s*$comment?$/){
         print STDERR "[Line $. invalid syntax] ";
         say STDERR $line;
         next;
