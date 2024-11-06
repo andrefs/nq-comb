@@ -1,5 +1,14 @@
 # nq-comb
-Fast N-Quads parsing tool which filters out quads (or triples)  with invalid syntax
+
+Fast N-Quads parsing tool which filters out quads (or triples) with invalid syntax
+
+## Installation
+
+```
+cp nq-comb.packed /usr/bin/nq-comb
+```
+
+You might need `sudo`.
 
 ## Usage
 
