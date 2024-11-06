@@ -1,0 +1,997 @@
+@prefix : <http://kbpedia.org/kko/rc/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix kko: <http://kbpedia.org/ontologies/kko#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix wikiCategory: <http://wikipedia.org/wiki/Category:> .
+
+<http://kbpedia.org/kbpedia/rc#> a owl:Ontology ;
+	owl:versionIRI :v250 ;
+	owl:imports <https://www.w3.org/2009/08/skos-reference/skos-owl1-dl.rdf> , <file:///kbpedia/2.50/owl/kko.n3> ;
+	dc:date "2020-02-24T20:00:00Z"@en ;
+	owl:priorVersion "Version 2.00 of KBpedia and KKO, released Jan 23, 2019, provided full mappings to Wikidata and Wikipedia, as well as complete definitions for all RCs (reference concepts). Duplicates were checked and many minor typology corrections were made. This version was the first, complete, open-source release of KBpedia. Because of these substantial changes, the version numbers were skipped forward."@en , "Version 1.50 of KKO and KBpedia, released Sep 13, 2017, marked a major update. KKO properties were updated and organized according the three main property splits into Attributes, (external) Relations, and Representations (or Annotations) according to Peircean principles and the universal categories of Firstness, Secondness and Thirdness. Version 1.50 also used this structure to introduce a comprehensive mapping against Wikidata properties."@en ;
+	dc:dateCopyrighted "2016-06-01T20:00:00Z"^^xsd:dateTime ;
+	owl:versionInfo """Version 2.50 of KKO and KBpedia, released Feb 10, 2020, is another major upgrade that resulted in version numbers skipping forward. The major change in this version is to completely integrate the UN Standard Products and Services Codes (UNSPSC) as the seventh core knowledge base included in the system, joining Wikidata, Wikipedia, OpenCyc, schema.org, GeoNames, and DBpedia. This addition now brings ecommerce and marketing capabilities to KBpedia. The Products typology was split into three parts and better disjointedness tests were added to the system. 
+
+The addition of UNSPSC added a net of about 5000 reference concepts (RCs) to the system, including identification and removal of about 700 duplicate RCs from the merge. (Total RCs now exceed 58 K.) Mappings to Wikidata and Wikipedia were also made for this new UNSPSC structure, which now contains all three levels of the four-level UNSPSC structure, as well as thousands of the 'commodity' level items in it. 
+
+Property mappings to UNSPSC, Wikidata, Wikipedia, and GeoNames, while previously available in separate mapping files, were also added to the base KBpedia system. Note that these KBpedia mappings are still available as separate files."""@en ;
+	<http://creativecommons.org/ns#license> <http://creativecommons.org/licenses/by/4.0/> ;
+	skos:definition "The KBpedia full structure is, one, a vocabulary of classes and predicates for describing domain ontologies, and, two, a logical knowledge graph for reasoning and extending for domain purposes, with the specific aim of promoting interoperability with external datasets and domains."@en ;
+	dc:creator "Frédérick Giasson"@en ;
+	owl:priorVersion "Version 1.20 of the KBpedia Knowledge Ontology (KKO) and KBpedia, released Dec 5, 2016, was a fairly significant re-write of the KKO upper structure. This update was driven by two factors: 1) a revisiting of some assignments due to the attention given actions and predicates (specifically, Actions, Events, Situations, Relations) as opposed to earlier efforts that focused on Entities and Classes (Generals); and 2) an attempt to both rely more directly on Peircean terminology where it made sense and to rely less directly on that terminology where it was obscure or dated."@en ;
+	vann:preferredNamespaceUri "http://kbpedia.org/kko/rc/" ;
+	dc:publisher "Cognonto Corporation, via its agent, Semantics Press LLC"@en ;
+	owl:priorVersion "Version 1.10 of KKO and KBpedia, released Nov 15, 2016, focused on two major updates. First, certain aspects of the upper structure of KKO were streamlined. And, second, KBpedia’s core typologies, which capture the overwhelming majority of reference concepts that are classified as entity types, were further organized to create tighter taxonomic structures."@en , "Version 1.00 of the KBpedia Knowledge Ontology (KKO), released Aug 6, 2016, was the first commercial release of the system. It was a rather complete re-write and re-organization of the UMBEL (Upper Mapping and Binding Exchange Layer) ontology, significantly modified to accommodate its purpose for integrating knowledge bases (KBs)."@en , "Version 1.60 of KKO and KBpedia, released Oct 1, 2018, marked the first open-source version of KBpedia. It greatly expanded mappings to Wikidata and Wikipedia and moved to address gaps in the definitions of resource concepts (RCs). However, because of time pressures, not all open-source updates were completed for this release."@en ;
+	skos:prefLabel "KBpedia - Full Structure"@en ;
+	skos:altLabel "KBpedia"@en ;
+	dc:creator "Michael K. Bergman"@en ;
+	owl:priorVersion "Version 2.10, released Mar 27, 2019, resulted in instance mappings for Wikidata achieving 99% coverage. All 45 K mappings were manually checked, resulting in a further 1.25% correction of assignments. About half of existing mappings to Wikidata categories were converted to be represented by the topic entity. Wikipedia mappings have been similarly improved."@en , "Version 1.40 of the KBpedia Knowledge Ontology (KKO) and KBpedia, released Feb 28, 2017, was the result of reciprocal mapping from Wikipedia to KBpedia. Reciprocal mapping adds sub-graph structure and new nodes to the target knowledge base. Nearly 40% more reference concepts were added to KBpedia in this v 1.40 release compared to prior versions of KBpedia."@en , "Version 2.00 of KBpedia and KKO, released Jan 23, 2019, provided full mappings to Wikidata and Wikipedia, as well as complete definitions for all RCs (reference concepts). Duplicates were checked and many minor typology corrections were made. This version was the first, complete, open-source release of KBpedia."@en , "Version 1.30 of KKO, released on Jan 27, 2017, was an internal release version only. This version tested procedures for reverse mapping of sub-graph structures within a source knowledge base (B) to those of the target KBpedia knowledge structure (A). Most conventional mappings are of the B --> A form, where what is mapped from B requires a direct tie-in point in A. Reverse mapping, tentatively called reciprocal mapping, identifies and places new structure from B into A, resulting in the target now being (B+A)."@en , "Version 2.21 of KKO and KBpedia was updated Dec 7, 2019, with minor placement improvements from the original v 2.20, released Nov 11, 2019. This version was devoted to clean up of the individual typologies in the system, the removal of long species lists and individuals, some re-organization of the results, and removal of UMBEL linkages due to the retirement of that system. Nearly 2000 reference concepts (RCs) were removed from KBpedia due to these changes."@en ;
+	vann:preferredNamespacePrefix "kbpedia" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://creativecommons.org/ns#license
+
+<http://creativecommons.org/ns#license> a owl:AnnotationProperty .
+# 
+# http://kbpedia.org/kko/rc/_3-d-met-id
+
+:_3-d-met-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "3DMET ID"@en ;
+	skos:definition "Identifier of chemical compounds in 3DMet database."@en ;
+	skos:prefLabel "3DMet ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/_3-d-model
+
+:_3-d-model a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Representation of any three-dimensional surface of an object."@en ;
+	skos:prefLabel "3D model "@en ;
+	rdfs:subPropertyOf kko:media .
+# 
+# http://kbpedia.org/kko/rc/_365-chess-player-id
+
+:_365-chess-player-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for players at 365chess.com."@en ;
+	skos:prefLabel "365chess player ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/_90-minut-player-id
+
+:_90-minut-player-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "ID in the 90minut website for a football/soccer player."@en ;
+	skos:prefLabel "90minut player ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/a-bo-k-number
+
+:a-bo-k-number a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a knot in the Ashley Book of Knots."@en ;
+	skos:prefLabel "ABoK number "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/aarne-thompson-uther-tale-type-index
+
+:aarne-thompson-uther-tale-type-index a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "ATU index"@en ;
+	skos:definition "Index used to classify folktales."@en ;
+	skos:prefLabel "Aarne–Thompson–Uther Tale Type Index "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/aat-id
+
+:aat-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "Art & Architecture Thesaurus ID||AAT identifier"@en ;
+	skos:definition "Identifier in the Art & Architecture Thesaurus by the Getty Research Institute."@en ;
+	skos:prefLabel "AAT ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/aba-bird-id
+
+:aba-bird-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a bird taxon, issued by the American Birding Association."@en ;
+	skos:prefLabel "ABA bird ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/abandonia-identifier
+
+:abandonia-identifier a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier in the Abandonia database of DOS video games."@en ;
+	skos:prefLabel "Abandonia identifier "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/about
+
+:about a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "The subject matter of the content."@en ;
+	skos:prefLabel "about"@en ;
+	rdfs:subPropertyOf kko:pointers .
+# 
+# http://kbpedia.org/kko/rc/academia-edu-institutional-id
+
+:academia-edu-institutional-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Academic institution page on academia.edu."@en ;
+	skos:prefLabel "Academia.edu institutional ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/academia-net-id
+
+:academia-net-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier in the AcademiaNet database for excellent female scientists."@en ;
+	skos:prefLabel "AcademiaNet ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/academic-tree-id
+
+:academic-tree-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "The Academic Family Tree"@en ;
+	skos:definition "Identifer on academictree.org."@en ;
+	skos:prefLabel "Academic Tree ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/academie-des-inscriptions-et-belles-lettres-member-id
+
+:academie-des-inscriptions-et-belles-lettres-member-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a member of the Académie des Inscriptions et Belles-Lettres on its website."@en ;
+	skos:prefLabel "Académie des Inscriptions et Belles-Lettres member ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/academie-francaise-member-id
+
+:academie-francaise-member-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a member of the Académie française on its website."@en ;
+	skos:prefLabel "Académie française member ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/acb-com-player-id
+
+:acb-com-player-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "ID for a basketball player at ACB.com."@en ;
+	skos:prefLabel "ACB.com player ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/accademia-della-crusca-id
+
+:accademia-della-crusca-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a member of Accademia della Crusca."@en ;
+	skos:prefLabel "Accademia della Crusca ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/access-code
+
+:access-code a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Password, PIN, or access code needed for delivery (e.g. from a locker)."@en ;
+	skos:prefLabel "accessCode"@en ;
+	rdfs:subPropertyOf kko:codes .
+# 
+# http://kbpedia.org/kko/rc/accessibility-summary
+
+:accessibility-summary a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "A human-readable summary of specific accessibility features or deficiencies, consistent with the other accessibility metadata but expressing subtleties such as \"short descriptions are present but long descriptions will be needed for non-visual users\" or \"short descriptions are present and no long descriptions are needed.\""@en ;
+	skos:prefLabel "accessibilitySummary"@en ;
+	rdfs:subPropertyOf kko:descriptions .
+# 
+# http://kbpedia.org/kko/rc/account-id
+
+:account-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "The identifier for the account the payment will be applied to."@en ;
+	skos:prefLabel "accountId"@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/acm-digital-library-author-id
+
+:acm-digital-library-author-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "ACM DL ID||ACM DL||ACM Digital Library author identifier"@en ;
+	skos:definition "Association for Computing Machinery Digital Library (ACM DL) author identifier."@en ;
+	skos:prefLabel "ACM Digital Library author ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/acm-digital-library-citation-id
+
+:acm-digital-library-citation-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Unique identifier for a bibliographic record in the Association for Computing Machinery (ACM) Digital Library."@en ;
+	skos:prefLabel "ACM Digital Library citation ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/acma-radiocommunications-licence-id
+
+:acma-radiocommunications-licence-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier of an organisation or person who holds a radiocommunications licence within Australia."@en ;
+	skos:prefLabel "ACMA Radiocommunications Licence ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/actorenregister-id
+
+:actorenregister-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Unique identifier in the Dutch Actorenregister database."@en ;
+	skos:prefLabel "Actorenregister ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/adagp-artist-id
+
+:adagp-artist-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for an artist as a member of the French collective rights management organisation ADAGP and sister organisations worldwide."@en ;
+	skos:prefLabel "ADAGP artist ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/additional-name
+
+:additional-name a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "An additional name for a Person, can be used for a middle name."@en ;
+	skos:prefLabel "additionalName"@en ;
+	rdfs:subPropertyOf kko:labels .
+# 
+# http://kbpedia.org/kko/rc/address
+
+:address a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Physical address of the item."@en ;
+	skos:prefLabel "address"@en ;
+	rdfs:subPropertyOf kko:pointers .
+# 
+# http://kbpedia.org/kko/rc/address-country
+
+:address-country a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "The country. For example, USA. You can also provide the two-letter <a href=\"http://en.wikipedia.org/wiki/ISO_3166-1\">ISO 3166-1 alpha-2 country code</a>."@en ;
+	skos:prefLabel "addressCountry"@en ;
+	rdfs:subPropertyOf kko:pointers .
+# 
+# http://kbpedia.org/kko/rc/address-locality
+
+:address-locality a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "The locality. For example, Mountain View."@en ;
+	skos:prefLabel "addressLocality"@en ;
+	rdfs:subPropertyOf kko:pointers .
+# 
+# http://kbpedia.org/kko/rc/address-region
+
+:address-region a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "The region. For example, CA."@en ;
+	skos:prefLabel "addressRegion"@en ;
+	rdfs:subPropertyOf kko:pointers .
+# 
+# http://kbpedia.org/kko/rc/adk-member-id
+
+:adk-member-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Akademie der Künste in Berlin member ID."@en ;
+	skos:prefLabel "ADK member ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/administrative-code-of-indonesia
+
+:administrative-code-of-indonesia a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "administrative code of Indonesian Administrative Division||administrative code of Indonesian Administrative Division"@en ;
+	skos:definition "Unique administrative code for a place, issued by the Ministry of Home Affairs of Republic of Indonesia in 2015."@en ;
+	skos:prefLabel "administrative code of Indonesia "@en ;
+	rdfs:subPropertyOf kko:codes .
+# 
+# http://kbpedia.org/kko/rc/admiralty-number
+
+:admiralty-number a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier of lighthouses by United Kingdom Hydrographic Office."@en ;
+	skos:prefLabel "Admiralty number "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/ads-bibcode
+
+:ads-bibcode a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "bibcode ADS"@en ;
+	skos:definition "Bibcode in the Astrophysics Data System."@en ;
+	skos:prefLabel "ADS bibcode "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/adult-film-database-actor-id
+
+:adult-film-database-actor-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "ID for an actor in the Adult Film Database."@en ;
+	skos:prefLabel "Adult Film Database actor ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/adw-taxon-id
+
+:adw-taxon-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a taxon, in the Animal Diversity Web database."@en ;
+	skos:prefLabel "ADW taxon ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/aelg-id
+
+:aelg-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a writer in the Galician Writers Association website."@en ;
+	skos:prefLabel "AELG ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/afi-catalog-of-feature-films-id
+
+:afi-catalog-of-feature-films-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier of a film (movie) in the American Film Institute Catalog of Feature Film."@en ;
+	skos:prefLabel "AFI Catalog of Feature Films ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/afl-tables-coach-id
+
+:afl-tables-coach-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "ID for a VFL/AFL coach at afltables.com."@en ;
+	skos:prefLabel "AFL Tables coach ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/afl-tables-player-id
+
+:afl-tables-player-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "ID for a VFL/AFL player at afltables.com."@en ;
+	skos:prefLabel "AFL Tables player ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/african-plant-database-id
+
+:african-plant-database-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a plant taxon, in the Conservatoire et Jardin botaniques de Genève's African Plant Database of scientific names."@en ;
+	skos:prefLabel "African Plant Database ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/africultures-movie-id
+
+:africultures-movie-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a movie at Africultures.com."@en ;
+	skos:prefLabel "Africultures movie ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/africultures-person-id
+
+:africultures-person-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "ID of a person at French website Africultures."@en ;
+	skos:prefLabel "Africultures person ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/after-media
+
+:after-media a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "A media object representing the circumstances after performing this direction."@en ;
+	skos:prefLabel "afterMedia"@en ;
+	rdfs:subPropertyOf kko:media .
+# 
+# http://kbpedia.org/kko/rc/aftonbladet-topic-id
+
+:aftonbladet-topic-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a topic, used by Omni and Aftonbladet."@en ;
+	skos:prefLabel "Aftonbladet topic ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/agassiz-checklist-number
+
+:agassiz-checklist-number a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Reference for a species in the 2013 checklist of over 2,700 species British lepidoptera."@en ;
+	skos:prefLabel "Agassiz checklist number "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/agorha-event-identifier
+
+:agorha-event-identifier a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "An AGORHA event identifier."@en ;
+	skos:prefLabel "AGORHA event identifier "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/agorha-person-institution-id
+
+:agorha-person-institution-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "AGORHA"@en ;
+	skos:definition "Identifier for a person or institution in the Agorha database (INHA)."@en ;
+	skos:prefLabel "AGORHA person/institution ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/agorha-work-id
+
+:agorha-work-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for historical art resources."@en ;
+	skos:prefLabel "AGORHA work ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/aicte-institute-application-id
+
+:aicte-institute-application-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier number issued annually for institutions who need to re-apply for accreditation by the All India Council for Technical Education."@en ;
+	skos:prefLabel "AICTE institute application ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/ainm-id
+
+:ainm-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Іdentifier for a biographical page on the AINM site."@en ;
+	skos:prefLabel "AINM ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/air-ministry-specification-id
+
+:air-ministry-specification-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "specification||UK Air Ministry specification"@en ;
+	skos:definition "Identifier for an aircraft specification issued by the United Kingdom Air Ministry."@en ;
+	skos:prefLabel "Air Ministry specification ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/aircraft-registration
+
+:aircraft-registration a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "acreg||registration"@en ;
+	skos:definition "Identifier assigned to an individual aircraft by civil aircraft registry."@en ;
+	skos:prefLabel "aircraft registration "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/aircraft-registration-prefix
+
+:aircraft-registration-prefix a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "National prefix used in civil aircraft registration numbers."@en ;
+	skos:prefLabel "aircraft registration prefix "@en ;
+	rdfs:subPropertyOf kko:codes .
+# 
+# http://kbpedia.org/kko/rc/akl-online-artist-id
+
+:akl-online-artist-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Artist identifier in the Artists of the World Online database."@en ;
+	skos:prefLabel "AKL Online Artist ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/alabama-sports-hall-of-fame-athlete-id
+
+:alabama-sports-hall-of-fame-athlete-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for an athlete on the Alabama Sports Hall of Fame website."@en ;
+	skos:prefLabel "Alabama Sports Hall of Fame athlete ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/alaska-sports-hall-of-fame-athlete-id
+
+:alaska-sports-hall-of-fame-athlete-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for an athlete on the Alaska Sports Hall of Fame website."@en ;
+	skos:prefLabel "Alaska Sports Hall of Fame athlete ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/alberta-register-of-historic-places-id
+
+:alberta-register-of-historic-places-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "Alberta Register of Historic Places identifier||Alberta Historic Places ID"@en ;
+	skos:definition "Identifier of historic resources in the Alberta Register of Historic Places."@en ;
+	skos:prefLabel "Alberta Register of Historic Places ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/alcuin-id
+
+:alcuin-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier of a philosopher in the ALCUIN Infothek der Scholastik."@en ;
+	skos:prefLabel "ALCUIN ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/algae-base-url
+
+:algae-base-url a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "URL for a taxon in AlgaeBase.org."@en ;
+	skos:prefLabel "AlgaeBase URL "@en ;
+	rdfs:subPropertyOf kko:pointers .
+# 
+# http://kbpedia.org/kko/rc/all-athletics-com-id
+
+:all-athletics-com-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for an athlete on the All-Athletics.com website."@en ;
+	skos:prefLabel "All-Athletics.com ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/all-blacks-player-id
+
+:all-blacks-player-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a men's rugby union player on the New Zealand Rugby Union website."@en ;
+	skos:prefLabel "All Blacks player ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/all-movie-movie-id
+
+:all-movie-movie-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a film on the website AllMovie."@en ;
+	skos:prefLabel "AllMovie movie ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/all-movie-person-id
+
+:all-movie-person-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a person on the AllMovie film database."@en ;
+	skos:prefLabel "AllMovie person ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/all-music-album-id
+
+:all-music-album-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for an album in AllMusic database."@en ;
+	skos:prefLabel "AllMusic album ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/all-music-artist-id
+
+:all-music-artist-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for an artist in AllMusic database."@en ;
+	skos:prefLabel "AllMusic artist ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/all-music-composition-id
+
+:all-music-composition-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a composition in AllMusic."@en ;
+	skos:prefLabel "AllMusic composition ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/all-music-song-id
+
+:all-music-song-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a song in AllMusic database."@en ;
+	skos:prefLabel "AllMusic song ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/all-russian-mathematical-portal-id
+
+:all-russian-mathematical-portal-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a mathematician in the All-Russian Mathematical Portal."@en ;
+	skos:prefLabel "All-Russian Mathematical Portal ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/allbreedpedigree-id
+
+:allbreedpedigree-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a horse on Allbreedpedigree database."@en ;
+	skos:prefLabel "Allbreedpedigree ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/allcinema-film-id
+
+:allcinema-film-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "Allcinema film identifier"@en ;
+	skos:definition "Film IDs on Allcinema Movie Database."@en ;
+	skos:prefLabel "Allcinema film ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/alljudo-judoka-id
+
+:alljudo-judoka-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a judoka on the Alljudo.net website."@en ;
+	skos:prefLabel "Alljudo judoka ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/allo-cine-company-id
+
+:allo-cine-company-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a company on the AlloCiné film database."@en ;
+	skos:prefLabel "AlloCiné company ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/allo-cine-film-id
+
+:allo-cine-film-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "AlloCine movie ID||AlloCine film ID"@en ;
+	skos:definition "Identifier for a film in the French AlloCiné database."@en ;
+	skos:prefLabel "AlloCiné film ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/allo-cine-person-id
+
+:allo-cine-person-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "AlloCine person ID"@en ;
+	skos:definition "Identifier for a person on the AlloCiné film database."@en ;
+	skos:prefLabel "AlloCiné person ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/allo-cine-series-id
+
+:allo-cine-series-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "AlloCine series ID||AlloCine serie ID||AlloCiné serie ID"@en ;
+	skos:definition "Identifier for a serie in the AlloCiné film database."@en ;
+	skos:prefLabel "AlloCiné series ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/alpg-tour-golf-player-id
+
+:alpg-tour-golf-player-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a female golf player on the Australian Ladies Professional Golf website."@en ;
+	skos:prefLabel "ALPG Tour golf player ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/alternate-name
+
+:alternate-name a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "An alias for the item."@en ;
+	skos:prefLabel "alternateName"@en ;
+	rdfs:subPropertyOf kko:labels .
+# 
+# http://kbpedia.org/kko/rc/alternate-names
+
+:alternate-names a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Qualifier for alternate names given for a subject in a database entry."@en ;
+	skos:prefLabel "alternate names "@en ;
+	rdfs:subPropertyOf kko:labels .
+# 
+# http://kbpedia.org/kko/rc/alternative-headline
+
+:alternative-headline a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "A secondary title of the CreativeWork."@en ;
+	skos:prefLabel "alternativeHeadline"@en ;
+	rdfs:subPropertyOf kko:labels .
+# 
+# http://kbpedia.org/kko/rc/amazon-author-id
+
+:amazon-author-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Author identifier on Amazon.com."@en ;
+	skos:prefLabel "Amazon author ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/ameblo-username
+
+:ameblo-username a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "This item's username on Ameblo."@en ;
+	skos:prefLabel "Ameblo username "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/america-s-byways-road-id
+
+:america-s-byways-road-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a United States road on the America's Byways website."@en ;
+	skos:prefLabel "America's Byways road ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/american-hockey-league-player-id
+
+:american-hockey-league-player-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "ID of a player at TheAHL.com."@en ;
+	skos:prefLabel "American Hockey League player ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/american-national-biography-id
+
+:american-national-biography-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier of a person in the scholarly biographical encyclopedia."@en ;
+	skos:prefLabel "American National Biography ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/amphibia-web-species-id
+
+:amphibia-web-species-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a species, in the AmphibiaWeb database."@en ;
+	skos:prefLabel "AmphibiaWeb Species ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/amphibians-of-india-id
+
+:amphibians-of-india-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a species of amphibian, in the 'Amphibians of India' database."@en ;
+	skos:prefLabel "Amphibians of India ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/amtrak-station-code
+
+:amtrak-station-code a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Station identifier code for the Amtrak system."@en ;
+	skos:prefLabel "Amtrak station code "@en ;
+	rdfs:subPropertyOf kko:codes .
+# 
+# http://kbpedia.org/kko/rc/angel-list-id
+
+:angel-list-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Profile of a person or organisation on Angel List."@en ;
+	skos:prefLabel "Angel List ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/animator-ru-film-id
+
+:animator-ru-film-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "Animator.ru work ID"@en ;
+	skos:definition "ID of animated film in Animator.ru database."@en ;
+	skos:prefLabel "Animator.ru film ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/anime-cons-com-guest-id
+
+:anime-cons-com-guest-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a person or group at AnimeCons.com."@en ;
+	skos:prefLabel "AnimeCons.com guest ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/anime-news-network-anime-id
+
+:anime-news-network-anime-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "ANN anime ID"@en ;
+	skos:definition "Identifier of an anime in Anime News Network."@en ;
+	skos:prefLabel "Anime News Network anime ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/anime-news-network-company-id
+
+:anime-news-network-company-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "ANN company ID"@en ;
+	skos:definition "Identifier of a company on Anime News Network."@en ;
+	skos:prefLabel "Anime News Network company ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/anime-news-network-manga-id
+
+:anime-news-network-manga-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "ANN manga ID"@en ;
+	skos:definition "Identifier of a manga (or a light novel) in Anime News Network."@en ;
+	skos:prefLabel "Anime News Network manga ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/anime-news-network-person-id
+
+:anime-news-network-person-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "ANN person ID"@en ;
+	skos:definition "Identifier for a person or group of people on animenewsnetwork.com."@en ;
+	skos:prefLabel "Anime News Network person ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/anti-virus-alias
+
+:anti-virus-alias a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Alias issued by anti-virus companies to classify malware."@en ;
+	skos:prefLabel "anti-virus alias "@en ;
+	rdfs:subPropertyOf kko:labels .
+# 
+# http://kbpedia.org/kko/rc/app-store-app-id
+
+:app-store-app-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a mobile application in iTunes App Store."@en ;
+	skos:prefLabel "App Store app ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/appears-in-the-heritage-monument-list
+
+:appears-in-the-heritage-monument-list a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Heritage monument is a part of the list of heritage monuments."@en ;
+	skos:prefLabel "appears in the heritage monument list "@en ;
+	rdfs:subPropertyOf kko:lists .
+# 
+# http://kbpedia.org/kko/rc/apple-music-album-id
+
+:apple-music-album-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "iTunes ID||iTunes ID"@en ;
+	skos:definition "Identifier for a musical work in the iTunes website."@en ;
+	skos:prefLabel "Apple Music album ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/ar-kive-id
+
+:ar-kive-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a taxon, in the ARKive database."@en ;
+	skos:prefLabel "ARKive ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/ar-xiv-classification
+
+:ar-xiv-classification a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "ArXiv classification of pre-print articles."@en ;
+	skos:prefLabel "arXiv classification "@en ;
+	rdfs:subPropertyOf kko:codes .
+# 
+# http://kbpedia.org/kko/rc/ar-xiv-id
+
+:ar-xiv-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier of a document in arXiv pre-print archive."@en ;
+	skos:prefLabel "arXiv ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/araneae-spider-id
+
+:araneae-spider-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a taxon in araneae.nmbe.ch."@en ;
+	skos:prefLabel "Araneae Spider ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/arbet-sam-id
+
+:arbet-sam-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier in Working Life Museums Co-operation Council's and the Museum of Work's database of working-life museums in Sweden (Arbetslivsmuseer)."@en ;
+	skos:prefLabel "ArbetSam ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/arch-linux-package
+
+:arch-linux-package a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Name of the official Arch Linux package."@en ;
+	skos:prefLabel "Arch Linux package "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/architectuurgids-architect-id
+
+:architectuurgids-architect-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for an architect in the Dutch architectuurgids.nl database."@en ;
+	skos:prefLabel "Architectuurgids architect ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/architectuurgids-building-id
+
+:architectuurgids-building-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Unique identifier for a building in the Dutch architectuurgids.nl database."@en ;
+	skos:prefLabel "Architectuurgids building ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/archival-creator-authority-record-at-the-archives-nationales
+
+:archival-creator-authority-record-at-the-archives-nationales a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier of the Archives Nationales (French National Archives)."@en ;
+	skos:prefLabel "archival creator authority record at the Archives nationales "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/archive-url
+
+:archive-url a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:altLabel "URL in archive||URL archived"@en ;
+	skos:definition "URL to the archived web page specified with URL property."@en ;
+	skos:prefLabel "archive URL "@en ;
+	rdfs:subPropertyOf kko:pointers .
+# 
+# http://kbpedia.org/kko/rc/archon-code
+
+:archon-code a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Unique number used to identify archival collection locations within the UK and key global repositories holding collections relating to British history."@en ;
+	skos:prefLabel "ARCHON code "@en ;
+	rdfs:subPropertyOf kko:codes .
+# 
+# http://kbpedia.org/kko/rc/argentine-chamber-of-deputies-id
+
+:argentine-chamber-of-deputies-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a member of the Chamber of Deputies of Argentina (only incumbent)."@en ;
+	skos:prefLabel "Argentine Chamber of Deputies ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/argentine-olympic-committee-athlete-id
+
+:argentine-olympic-committee-athlete-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for an Argentine athlete on the website of the Argentine Olympic Committee (Comité Olímpico Argentino)."@en ;
+	skos:prefLabel "Argentine Olympic Committee athlete ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/argentine-senate-member-id
+
+:argentine-senate-member-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for a member of the Senate of Argentina (incumbent)."@en ;
+	skos:prefLabel "Argentine Senate member ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/argentinian-historic-heritage-id
+
+:argentinian-historic-heritage-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for historic heritage object included in the national index of Argentina."@en ;
+	skos:prefLabel "Argentinian Historic Heritage ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/aricns
+
+:aricns a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier for stars in ARICNS."@en ;
+	skos:prefLabel "ARICNS "@en ;
+	rdfs:subPropertyOf kko:identifiers .
+# 
+# http://kbpedia.org/kko/rc/arlhs-lighthouse-id
+
+:arlhs-lighthouse-id a owl:AnnotationProperty ;
+	rdfs:isDefinedBy <http://kbpedia.org/kko/rc/> ;
+	skos:definition "Identifier on the ARLHS World List of Lights."@en ;
+	skos:prefLabel "ARLHS Lighthouse ID "@en ;
+	rdfs:subPropertyOf kko:identifiers .

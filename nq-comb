@@ -7,6 +7,25 @@ use Data::Validate::URI qw/is_web_uri/;
 use strict; use warnings;
 use feature qw/say/;
 
+# Check for help flags in the arguments
+if (grep { $_ eq '-h' || $_ eq '--help' } @ARGV) {
+print <<'HELP';
+Usage: nq-comb [FILE]
+
+Options:
+    -h, --help      Show this help message
+
+Description:
+    nq-comb will read the N-Triples/N-Quads lines from FILE or STDIN, and will send to STDOUT the valid triples/quads, and output to STDERR the invalid lines.
+
+Examples:
+    nq-comb wordnet.nt
+    cat wordnet.nq | nq-comb
+
+HELP
+    exit;
+}
+
 my $pn_chars_base   = qr/[A-Za-z\x{00C0}-\x{00D6}\x{00D8}-\x{00F6}\x{00F8}-\x{02FF}\x{0370}-\x{037D}\x{037F}-\x{1FFF}\x{200C}-\x{200D}\x{2070}-\x{218F}\x{2C00}-\x{2FEF}\x{3001}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFFD}\x{10000}-\x{EFFFF}]/;
 my $pn_chars_u      = qr/$pn_chars_base|_|:/;
 my $pn_chars        = qr/$pn_chars_u|[\-0-9\x{00B7}\x{0300}-\x{036F}\x{203F}-\x{2040}]/;
@@ -63,3 +82,30 @@ while(my $line = <>){
 
     say $line;
 }
+
+
+__END__
+
+=head1 NAME
+
+nq-comb - Fast N-Quads parsing tool which filters out quads (or triples)  with invalid syntax
+
+
+=head1 SYNOPSIS
+
+ nq-comb [FILE]
+   Options:
+     -h      Show a help message
+
+=head1 DESCRIPTION
+
+nq-comb will read N-Triples/N-Quads lines from a file or STDIN, and will send to STDOUT the valid triples/quads, and output to STDERR the invalid lines.
+
+
+
+=head1 AUTHOR
+
+Andre F. Santos, andrefs@andrefs.com
+
+=cut      
+__END__
